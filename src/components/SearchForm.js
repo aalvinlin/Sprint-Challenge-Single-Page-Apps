@@ -37,17 +37,24 @@ const SubmitButton = styled.button`
 
 `;
 
+// End styling
 
-
-
-const handleSubmit = function (event) {
-
-  event.preventDefault();
-
-}
-
-export default function SearchForm() {
+export default function SearchForm({searchQuery, setSearchQuery}) {
  
+  const updateSearchQuery = function (event) {
+    setSearchQuery(event.target.value);
+  
+    console.log(searchQuery);
+    
+  }
+  
+  const handleSubmit = function (event) {
+  
+    event.preventDefault();
+  
+  }
+  
+
   return (
     <section className="search-form">
      
@@ -55,7 +62,7 @@ export default function SearchForm() {
 
         <SearchInstructions>Search for a character or episode...</SearchInstructions>
 
-        <SearchInput type="text"/>
+        <SearchInput type="text" name="searchInput" value={searchQuery} onChange={updateSearchQuery}/>
 
         <SubmitButton type="submit">Search!</SubmitButton>
 

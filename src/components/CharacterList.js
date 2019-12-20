@@ -4,7 +4,7 @@ import styled from "styled-components";
 import CharacterCard from "./CharacterCard";
 
 import characters from "../data/characters";
-console.log("The characters are...", characters);
+// console.log("The characters are...", characters);
 
 
 const AllCharactersContainer = styled.div`
@@ -15,23 +15,31 @@ const AllCharactersContainer = styled.div`
 
 `;
 
-export default function CharacterList() {
+export default function CharacterList({searchQuery, setSearchQuery}) {
   // TODO: Add useState to track data from useEffect
 
-  const [characterData, setCharacterData] = useState({});
+  const [characterData, setCharacterData] = useState(characters.results);
 
   useEffect(() => {
+
+    setCharacterData(characterData.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase())))
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+
+  }, [searchQuery]);
+
+  let resultsText = "Showing All Characters"
+
+  if (searchQuery !== "")
+    { resultsText += ` Matching "${searchQuery}"`}
 
   return (
     <section className="character-list">
-      <h2>Characters Found</h2>
+      <h2>{resultsText}</h2>
 
       <AllCharactersContainer>
 
-        {characters.results.map(character => <CharacterCard characterData={character} />)}
+        {characterData.map(character => <CharacterCard characterData={character} />)}
 
       </AllCharactersContainer>
     </section>

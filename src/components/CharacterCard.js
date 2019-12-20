@@ -18,9 +18,9 @@ const CharacterDiv = styled.div`
 
 const CharacterImg = styled.img`
 
-  width: 100px;
-  height: 100px;
+  max-height: 100px;
   margin-right: 10px;
+
 
 `;
 
@@ -46,14 +46,14 @@ const Category = styled.span`
 
 
 
-// export default function CharacterCard({created, episode, gender, id, image, location, name, origin, species, status}) {
+
   export default function CharacterCard(props) {
 
   const {created, episode, gender, id, image, location, name, origin, species, status} = props.characterData;
   const locationName = location.name;
 
 
-  console.log(name, species, locationName);
+  // console.log(name, species, locationName);
 
   return (
   
