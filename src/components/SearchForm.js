@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom"
 
 import styled from "styled-components";
 
@@ -18,21 +19,26 @@ const SearchInstructions = styled.h3`
 
 const SearchInput = styled.input`
 
-  font-size: 2rem;
+  font-size: 1rem;
 
-  line-height: 4rem;
-  padding: 0 1rem;
+  line-height: 2rem;
+  padding: 0 0.5rem;
+
+  width: 50%
 
 `;
 
 const SubmitButton = styled.button`
 
-  font-size: 2rem;
+  font-size: 1rem;
 
-  line-height: 4rem;
-  padding: 0 1rem;
+  line-height: 2rem;
+  padding: 0 0.5rem;
 
 `;
+
+
+
 
 const handleSubmit = function (event) {
 
@@ -52,6 +58,8 @@ export default function SearchForm() {
         <SearchInput type="text"/>
 
         <SubmitButton type="submit">Search!</SubmitButton>
+
+        <Link to="characters">View All Characters</Link>
 
       </StyledForm>
 
