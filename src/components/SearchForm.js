@@ -64,7 +64,7 @@ export default function SearchForm({searchQuery, setSearchQuery}) {
 
         <SearchInput type="text" name="searchInput" value={searchQuery} onChange={updateSearchQuery}/>
 
-        <SubmitButton type="submit">Search!</SubmitButton>
+        {/* <SubmitButton type="submit">Search!</SubmitButton> */}
 
         <Link to="characters">View All Characters</Link>
 
