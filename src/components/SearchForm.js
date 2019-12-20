@@ -44,7 +44,7 @@ export default function SearchForm({searchQuery, setSearchQuery}) {
   const updateSearchQuery = function (event) {
     setSearchQuery(event.target.value);
   
-    console.log(searchQuery);
+    console.log(updateSearchQuery);
     
   }
   
@@ -58,9 +58,9 @@ export default function SearchForm({searchQuery, setSearchQuery}) {
   return (
     <section className="search-form">
      
-      <StyledForm name="search" action={handleSubmit}>
+      <StyledForm name="search" onSubmit={handleSubmit}>
 
-        <SearchInstructions>Search for a character or episode...</SearchInstructions>
+        <SearchInstructions>Start typing to search for a character...</SearchInstructions>
 
         <SearchInput type="text" name="searchInput" value={searchQuery} onChange={updateSearchQuery}/>
 
