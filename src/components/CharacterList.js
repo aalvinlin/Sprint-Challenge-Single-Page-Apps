@@ -19,10 +19,11 @@ export default function CharacterList({searchQuery, setSearchQuery}) {
   // TODO: Add useState to track data from useEffect
 
   const [characterData, setCharacterData] = useState(characters.results);
+  const [filteredCharacterData, setFilteredCharacterData] = useState(characterData);
 
   useEffect(() => {
 
-    setCharacterData(characterData.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase())))
+    setFilteredCharacterData(characterData.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase())))
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
 
@@ -39,7 +40,7 @@ export default function CharacterList({searchQuery, setSearchQuery}) {
 
       <AllCharactersContainer>
 
-        {characterData.map(character => <CharacterCard characterData={character} />)}
+        {filteredCharacterData.map(character => <CharacterCard characterData={character} />)}
 
       </AllCharactersContainer>
     </section>
